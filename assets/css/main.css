@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Average&display=swap');
+
+/*RESET*/
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--main-font);
+}
+
+:root {
+    --primary-color: #0086ff;
+    --main-font: 'Average';
+    --rd-default: 15px;
+    --rd-small: 10px;
+}
+
+main {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: auto 66px; /*btn-menu width + margin*/
+    grid-template-rows: auto auto auto;
+}
+
+button {
+    cursor: pointer;
+}
+
+button#btn-menu {
+    color: white;
+    height: 3.125rem; /*50px*/
+    width: 3.125rem; /*50px*/
+}
+
+
+
+/*CHANGE STYLE PANEL*/
+div#style-panel {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    grid-row: 2;
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--primary-color);
+    box-shadow: 0px 0px 5px #575454;
+    border-radius: 0 40px 40px 0;
+}
+
+div#style-panel > .panel-btn {
+    color: white;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient( to right, transparent 0%, rgb(4, 4, 97)) left center/1000px 1000px transparent;
+    border: none;
+    font: bold 1.2rem sans-serif;
+}
+div#style-panel > .panel-btn:nth-child(1){
+    border-radius: 0 40px 0 0;
+}
+div#style-panel > .panel-btn:nth-child(3){
+    border-radius: 0 0  40px 0;
+}
+div#style-panel > .panel-btn:hover {
+    animation: btn-gradient .5s both;
+}
+
+
+/*MENU BUTTON ACTIVATOR*/
+button#btn-menu {
+    grid-column: 2;
+    background-color: var(--primary-color);
+    border: 3px inset black;
+    border-radius: var(--rd-small); 
+    margin: 17px 10px 0 0;
+    position: relative;
+    transition: background .2s ease, border .2s ease;
+}
+button#btn-menu:hover {
+    background-color: #84bef1;
+    border-color: gray;
+    border-style: solid;
+}
+button#btn-menu > .bar {
+    display: block;
+    position: absolute;
+    width: 70%;
+    height: 5px;
+    border-radius: inherit;
+    background-color: white;
+    left: 15%;
+}
+button#btn-menu > .bar:nth-child(1){
+    top: 20%;
+}
+button#btn-menu > .bar:nth-child(2){
+    top: 45%;
+}
+button#btn-menu > .bar:nth-child(3){
+    top: 70%;
+}
+button#btn-menu > span#hidden-btn-label {
+    display: none;
+}
+
+
+/*MENU STYLE*/
+nav#menu {
+    display: none;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 210px;
+    height: fit-content;
+    background-color: #fff;
+    border: 6px solid var(--primary-color);
+    border-radius: var(--rd-default);
+    overflow: hidden;
+}
+ul#menu-box {
+    display: flex;
+    height: 100%;
+    padding: 5px 4px;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.item-btn {
+    display: block;
+    width: 100%;
+    background-color: unset;
+    text-align: left;
+    border: 3px solid transparent;
+    border-radius: var(--rd-default);
+}
+.item-btn .btn-label {
+    font-size: 1.45rem;
+    text-transform: uppercase;
+}
+
+
+/*NDS VERSION*/
+.nds  .item-btn {
+    height: 48px;
+    padding: 15px 0 40px 55px;
+    position: relative;
+}
+.nds .item-btn .btn-icon {
+    position: absolute;
+    top: 12%;
+    left: 2%;
+    width: 45px;
+    height: 80%;
+    transform: rotate(0deg);
+}
+.nds .menu-item .item-btn:hover,
+.nds .menu-item > .item-btn:focus {
+    background-color: #fff0f0;
+    border: 3px solid black;
+    outline: none;
+}
+.nds .menu-item .item-btn:hover > .btn-icon,
+.nds  .item-btn:focus > .btn-icon {
+    animation: item-rotate .5s;
+}
+
+/*GBA AND GB VERSION*/
+.gba .menu-item .item-btn,
+.gb .menu-item .item-btn {
+    width: 70%;
+    padding: 8px 5px;
+    margin: 0 auto;
+    position: relative;
+    outline: none; /*Remove o estilo padrão de quando está em foco*/
+}
+.gba .menu-item .item-btn:hover::after,
+.gba .menu-item .item-btn:focus::after,
+.gb .menu-item .item-btn:hover::after,
+.gb .menu-item .item-btn:focus::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 29%;
+    left: -10%;
+    border: 10px solid black;
+    border-color: transparent transparent transparent black;
+}
+button#btn-menu + .gb {
+    border-color: #000;
+}
+
+
+/*ICONS CONFIG*/
+/*posição x e y no sprite, os valores são para centralizar o background-icon dentro do espaço*/
+.pokedex {
+    background: transparent url("../icons/sprites.webp") -62px -6px no-repeat;
+}
+.pokemons {
+    background: transparent url("../icons/sprites.webp") -116px -6px no-repeat;
+}
+.bag {
+    background: transparent url('../icons/sprites.webp') -7px -6px no-repeat;
+}
+.trainer-card {
+    background: transparent url("../icons/sprites.webp") -4px -60px no-repeat;
+}
+.save {
+    background: transparent url("../icons/sprites.webp") -116px -56px no-repeat;
+}
+.options {
+    background: transparent url("../icons/sprites.webp") -56px -60px no-repeat;
+}
+.exit {
+    background: transparent url("../icons/sprites.webp") -4px -110px no-repeat;
+}
+
+
+/*ANIMATIONS*/
+@keyframes btn-gradient {
+    0% {background-position: 0px 500px;}
+    50% {background-position: 50px 500px;}  
+    100% {background-position: 100px 500px;}
+}
+@keyframes item-rotate {
+    0% {transform: rotate(0deg);}
+    50% {transform: rotate(25deg);}
+    100% {transform: rotate(0deg);}
+}
+@keyframes show-menu {
+    0% {
+        width: 0px;
+
+    }
+    100% {
+        width: 210px;
+        visibility: visible;
+    }
+}
+.show-menu {
+    animation: show-menu .4s ease forwards;
+}
+@keyframes close-menu {
+    0% {
+        width: 210px;
+    }
+    100% {
+        width: 0px;
+        visibility: hidden;
+    }
+}
+.close-menu {
+    animation: close-menu .4s ease forwards;
+}

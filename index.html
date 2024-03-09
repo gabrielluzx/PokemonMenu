@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Menu</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+    <main>
+        <!-- BOTÕES -->
+        <div id="style-panel" data-visibility="hidden">
+            <button class="panel-btn styled-btn" type="button" onclick="changeMenuStyle('nds')">NDS</button>
+            <button class="panel-btn styled-btn" type="button" onclick="changeMenuStyle('gba')">GBA</button>
+            <button class="panel-btn styled-btn" type="button" onclick="changeMenuStyle('gb')">GB</button>
+        </div>
+
+        <!-- BOTÃO DE MENU -->
+        <button id="btn-menu" class="btn-general" onclick="menuControl()" aria-label="Abrir menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <!-- label -->
+            <span id="hidden-btn-label">menu</span>
+        </button>
+
+        <!-- MENU -->
+        <nav id="menu" class="nds close-menu" data-visibility="hidden" data-style="nds">
+            <ul id="menu-box" type="none">
+                <li class="menu-item">
+                    <button type="button" class="item-btn">
+                        <i class="btn-icon pokedex"></i>
+                        <span class="btn-label">Pokédex</span>
+                    </button>
+                </li>
+                <li class="menu-item">
+                    <button type="button" class="item-btn">
+                        <i class="btn-icon pokemons"></i>
+                        <span class="btn-label">Pokémon</span>
+                    </button>
+                </li>
+                <li class="menu-item">
+                    <button type="button" class="item-btn">
+                        <i class="btn-icon bag"></i>
+                        <span class="btn-label">Mochila</span>
+                    </button>
+                </li>
+                <li class="menu-item">
+                    <button type="button" class="item-btn">
+                        <i class="btn-icon trainer-card"></i>
+                        <span class="btn-label">Gabriel</span>
+                    </button>
+                </li>
+                <li class="menu-item">
+                    <button type="button" class="item-btn">
+                        <i class="btn-icon save"></i>
+                        <span class="btn-label">Salvar</span>
+                    </button>
+                </li>
+                <li class="menu-item">
+                    <button type="button" class="item-btn">
+                        <i class="btn-icon options"></i>
+                        <span class="btn-label">Opções</span>
+                    </button>
+                </li>
+                <li class="menu-item">
+                    <button type="button" class="item-btn" onclick="menuControl()">
+                        <i class="btn-icon exit"></i>
+                        <span class="btn-label">Sair</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </main>
+
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
